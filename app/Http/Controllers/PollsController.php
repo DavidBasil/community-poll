@@ -24,4 +24,9 @@ class PollsController extends Controller
         $poll->update($request->all());
         return $poll;
     }
+
+    public function delete(Request $request, Poll $poll){
+        $poll->delete();
+        return response()->json(null, 204);
+    }
 }

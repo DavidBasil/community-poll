@@ -19,4 +19,9 @@ class PollsController extends Controller
         $poll = Poll::create($request->all()); 
         return $poll;
     }
+
+    public function update(Request $request, Poll $poll){
+        $poll->update($request->all());
+        return $poll;
+    }
 }

@@ -8,10 +8,15 @@ use App\Poll;
 class PollsController extends Controller
 {
     public function index(){
-        return response()->json(Poll::get(), 200);
+        return Poll::all();
     }
 
     public function show($id){
-        return response()->json(Poll::find($id), 200);
+        return Poll::find($id);
+    }
+
+    public function store(Request $request){
+        $poll = Poll::create($request->all()); 
+        return $poll;
     }
 }

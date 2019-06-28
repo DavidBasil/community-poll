@@ -12,7 +12,11 @@ class PollsController extends Controller
     }
 
     public function show($id){
-        return Poll::find($id);
+        $poll = Poll::find($id);
+        if (is_null($poll)){
+            return response()->json(null, 404);
+        }
+        return Poll::findOrFail($id);
     }
 
     public function store(Request $request){
